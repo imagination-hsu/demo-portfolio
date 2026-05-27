@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jack 的數位秘密基地</title>
     <style>
-        /* 全域樣式：【新】營隊活潑暖橙配色 */
+        /* 全域樣式：營隊活潑暖橙配色 */
         body {
             margin: 0;
             padding: 0;
-            /* 4. 背景往下滑的漸層變化 */
             background: linear-gradient(to bottom, #fff7ed 0%, #ffedd5 50%, #fed7aa 100%);
             color: #2b2d42;
             font-family: 'Segoe UI', Microsoft JhengHei, sans-serif;
@@ -18,7 +17,7 @@
 
         /* 頂部導覽列 */
         header {
-            background-color: #ff971d; /* 活力暖橘 */
+            background-color: #ff971d; 
             padding: 40px 20px;
             text-align: center;
             border-bottom: 4px solid #ea580c;
@@ -57,7 +56,6 @@
             box-shadow: 0 8px 24px rgba(234, 88, 12, 0.06);
         }
         
-        /* 大頭照外框 */
         .avatar-wrapper {
             flex-shrink: 0;
             width: 150px;
@@ -97,15 +95,14 @@
             font-size: 1.8rem;
         }
 
-        /* 2. 生活與興趣網格 (欄位放大版) */
+        /* 2. 生活與興趣網格 */
         .about-me-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 放大欄位寬度 */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             margin-bottom: 60px;
         }
 
-        /* 興趣卡片樣式與滑鼠懸浮特效 */
         .info-card {
             background-color: #ffffff;
             border: 2px solid #ffedd5;
@@ -114,20 +111,16 @@
             display: flex;
             flex-direction: column;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-            /* 加入平滑動畫時間 */
             transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
         }
-
-        /* 滑鼠移到上面的浮出放大效果 */
         .info-card:hover {
-            transform: translateY(-10px) scale(1.03); /* 往上浮起並輕微放大 */
-            box-shadow: 0 15px 30px rgba(234, 88, 12, 0.15); /* 陰影加深變柔和 */
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(234, 88, 12, 0.15);
             border-color: #ff971d;
         }
-
         .info-card-img {
             width: 100%;
-            height: 200px; /* 圖片高度微調放大 */
+            height: 200px;
             object-fit: cover;
             background-color: #fff7ed;
         }
@@ -147,7 +140,7 @@
             margin: 0;
         }
 
-        /* 3. 精選作品卡片區域（三個橫式作品） */
+        /* 3. 精選作品卡片區域 */
         .projects-container {
             display: flex;
             flex-direction: column;
@@ -192,7 +185,6 @@
             font-size: 1rem;
         }
         
-        /* 繽紛按鈕樣式 */
         .btn {
             display: inline-block;
             background-color: #ff971d;
@@ -209,6 +201,12 @@
             transform: scale(1.02);
         }
 
+        /* 【新】在 Footer 之上的預留空白區塊（約滾動一次的大小） */
+        .scroll-spacer {
+            height: 80vh; 
+            pointer-events: none; 
+        }
+
         /* 頁尾 */
         footer {
             text-align: center;
@@ -216,17 +214,11 @@
             color: #7c2d12;
             font-size: 0.95rem;
             border-top: 2px solid #fed7aa;
-            margin-top: 50px;
             font-weight: 500;
+            background-color: rgba(254, 215, 170, 0.3); /* 稍微帶點淡淡底色讓底部更有安全感 */
         }
 
-        /* 5. 頁面最後預留空白區塊（約滾動一次的大小） */
-        .scroll-spacer {
-            height: 80vh; /* 佔瀏覽器高度的 80%，完美提供一次完整滾動的留白 */
-            pointer-events: none; /* 防止干擾點擊 */
-        }
-
-        /* RWD 響應式：手機畫面優化 */
+        /* RWD 響應式 */
         @media (max-width: 768px) {
             .profile-section {
                 flex-direction: column;
@@ -281,7 +273,7 @@
                 <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=500" alt="最喜歡的運動" class="info-card-img">
                 <div class="info-card-content">
                     <h3>🏀 我最喜歡的運動</h3>
-                    <p>除了坐在電腦前，我也很喜歡去球場打籃球！運球和投籃都需要不斷練習，就像寫程式要不斷 Debug 一樣。希望我的投籃命中率能跟我的程式碼一樣準！</p>
+                    <p>除了坐在電腦前，我也聯很喜歡去球場打籃球！運球和投籃都需要不斷練習，就像寫程式要不斷 Debug 一樣。希望我的投籃命中率能跟我的程式碼一樣準！</p>
                 </div>
             </div>
 
@@ -328,13 +320,13 @@
 
         </div>
 
+        <div class="scroll-spacer"></div>
+
     </div>
 
     <footer>
         <p>© 2026 Imagination Lab 想像力實驗室. Made with 💻 and AI.</p>
     </footer>
-
-    <div class="scroll-spacer"></div>
 
 </body>
 </html>
