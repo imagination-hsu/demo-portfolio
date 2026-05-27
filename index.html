@@ -5,51 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jack 的數位秘密基地</title>
     <style>
-        /* 全域樣式：營隊科技感配色 */
+        /* 全域樣式：【新】營隊活潑暖橙配色 */
         body {
             margin: 0;
             padding: 0;
-            background-color: #0b0f19;
-            color: #e2e8f0;
+            /* 4. 背景往下滑的漸層變化 */
+            background: linear-gradient(to bottom, #fff7ed 0%, #ffedd5 50%, #fed7aa 100%);
+            color: #2b2d42;
             font-family: 'Segoe UI', Microsoft JhengHei, sans-serif;
+            min-height: 100vh;
         }
 
         /* 頂部導覽列 */
         header {
-            background-color: #111827;
-            padding: 30px 20px;
+            background-color: #ff971d; /* 活力暖橘 */
+            padding: 40px 20px;
             text-align: center;
-            border-bottom: 2px solid #06b6d4;
+            border-bottom: 4px solid #ea580c;
+            box-shadow: 0 4px 15px rgba(234, 88, 12, 0.15);
         }
-        h1 {
+        header h1 {
             margin: 0;
-            color: #06b6d4;
-            font-size: 2.3rem;
+            color: #ffffff;
+            font-size: 2.6rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
         }
         .subtitle {
-            color: #94a3b8;
-            margin-top: 8px;
-            font-size: 1.1rem;
+            color: #fff7ed;
+            margin-top: 10px;
+            font-size: 1.15rem;
+            font-weight: bold;
         }
 
         /* 主體區塊 */
         .container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
         /* 1. 個人簡介區塊（含大頭照） */
         .profile-section {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            border: 1px solid #334155;
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 40px;
+            background-color: #ffffff;
+            border: 2px solid #fed7aa;
+            border-radius: 24px;
+            padding: 35px;
+            margin-bottom: 50px;
             display: flex;
             align-items: center;
-            gap: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            gap: 35px;
+            box-shadow: 0 8px 24px rgba(234, 88, 12, 0.06);
         }
         
         /* 大頭照外框 */
@@ -58,9 +63,10 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            border: 4px solid #06b6d4;
+            border: 4px solid #ff971d;
             overflow: hidden;
-            background-color: #334155;
+            background-color: #fff7ed;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         .avatar-wrapper img {
             width: 100%;
@@ -71,118 +77,161 @@
             flex-grow: 1;
         }
         .profile-info h2 {
-            color: #38bdf8;
-            margin: 0 0 10px 0;
+            color: #ea580c;
+            margin: 0 0 12px 0;
+            font-size: 1.8rem;
         }
         .profile-info p {
-            color: #cbd5e1;
-            line-height: 1.6;
+            color: #4b5563;
+            line-height: 1.7;
             margin: 0;
+            font-size: 1.05rem;
         }
 
         /* 分區大標題 */
         .section-title {
-            color: #06b6d4;
-            border-left: 5px solid #06b6d4;
+            color: #ea580c;
+            border-left: 6px solid #ff971d;
             padding-left: 15px;
-            margin: 40px 0 20px 0;
-            font-size: 1.6rem;
+            margin: 50px 0 25px 0;
+            font-size: 1.8rem;
         }
 
-        /* 2, 3, 4. 生活與興趣網格 (三欄佈局) */
+        /* 2. 生活與興趣網格 (欄位放大版) */
         .about-me-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 放大欄位寬度 */
+            gap: 30px;
+            margin-bottom: 60px;
         }
 
-        /* 興趣卡片樣式 */
+        /* 興趣卡片樣式與滑鼠懸浮特效 */
         .info-card {
-            background-color: #111827;
-            border: 1px solid #1e293b;
-            border-radius: 12px;
+            background-color: #ffffff;
+            border: 2px solid #ffedd5;
+            border-radius: 18px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            /* 加入平滑動畫時間 */
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
         }
+
+        /* 滑鼠移到上面的浮出放大效果 */
+        .info-card:hover {
+            transform: translateY(-10px) scale(1.03); /* 往上浮起並輕微放大 */
+            box-shadow: 0 15px 30px rgba(234, 88, 12, 0.15); /* 陰影加深變柔和 */
+            border-color: #ff971d;
+        }
+
         .info-card-img {
             width: 100%;
-            height: 180px;
+            height: 200px; /* 圖片高度微調放大 */
             object-fit: cover;
-            background-color: #1e293b;
+            background-color: #fff7ed;
         }
         .info-card-content {
-            padding: 20px;
+            padding: 24px;
             flex-grow: 1;
         }
         .info-card-content h3 {
-            margin: 0 0 10px 0;
-            color: #38bdf8;
-            font-size: 1.2rem;
+            margin: 0 0 12px 0;
+            color: #ff971d;
+            font-size: 1.3rem;
         }
         .info-card-content p {
-            color: #94a3b8;
-            font-size: 0.95rem;
-            line-height: 1.5;
+            color: #4b5563;
+            font-size: 1rem;
+            line-height: 1.6;
             margin: 0;
         }
 
-        /* 遊戲作品區塊 */
+        /* 3. 精選作品卡片區域（三個橫式作品） */
+        .projects-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
         .project-card {
-            background-color: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 12px;
+            background-color: #ffffff;
+            border: 2px solid #ffedd5;
+            border-radius: 18px;
             overflow: hidden;
             display: flex;
             align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(234, 88, 12, 0.1);
+            border-color: #ff971d;
         }
         .project-img {
-            width: 250px;
-            height: 180px;
+            width: 280px;
+            height: 190px;
             object-fit: cover;
+            flex-shrink: 0;
+            background-color: #fff7ed;
         }
         .project-info {
-            padding: 25px;
+            padding: 30px;
+            flex-grow: 1;
         }
         .project-info h3 {
             margin: 0 0 10px 0;
-            color: #f8fafc;
+            color: #ea580c;
+            font-size: 1.4rem;
         }
         .project-info p {
-            color: #94a3b8;
-            margin-bottom: 15px;
-            line-height: 1.5;
+            color: #4b5563;
+            margin: 0 0 20px 0;
+            line-height: 1.6;
+            font-size: 1rem;
         }
+        
+        /* 繽紛按鈕樣式 */
         .btn {
             display: inline-block;
-            background-color: #06b6d4;
+            background-color: #ff971d;
             color: #ffffff;
             text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 6px;
+            padding: 12px 24px;
+            border-radius: 10px;
             font-weight: bold;
-            transition: background 0.2s;
+            transition: background-color 0.2s, transform 0.1s;
+            box-shadow: 0 4px 10px rgba(255, 151, 29, 0.2);
         }
         .btn:hover {
-            background-color: #0891b2;
+            background-color: #ea580c;
+            transform: scale(1.02);
         }
 
         /* 頁尾 */
         footer {
             text-align: center;
             padding: 40px 0;
-            color: #64748b;
-            font-size: 0.9rem;
-            border-top: 1px solid #1e293b;
-            margin-top: 60px;
+            color: #7c2d12;
+            font-size: 0.95rem;
+            border-top: 2px solid #fed7aa;
+            margin-top: 50px;
+            font-weight: 500;
+        }
+
+        /* 5. 頁面最後預留空白區塊（約滾動一次的大小） */
+        .scroll-spacer {
+            height: 80vh; /* 佔瀏覽器高度的 80%，完美提供一次完整滾動的留白 */
+            pointer-events: none; /* 防止干擾點擊 */
         }
 
         /* RWD 響應式：手機畫面優化 */
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .profile-section {
                 flex-direction: column;
                 text-align: center;
+                padding: 25px;
             }
             .project-card {
                 flex-direction: column;
@@ -191,13 +240,16 @@
                 width: 100%;
                 height: 200px;
             }
+            .project-info {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>🚀 Jonathan 的數位秘密基地</h1>
+        <h1>🚀 Jack 的數位秘密基地</h1>
         <div class="subtitle">2026 暑期 AI x Scratch 遊戲工程營成果展示</div>
     </header>
 
@@ -205,7 +257,7 @@
         
         <section class="profile-section">
             <div class="avatar-wrapper">
-                <img src="大頭照.png" alt="大頭照">
+                <img src="大頭照.png" alt="Jack 的大頭照">
             </div>
             <div class="profile-info">
                 <h2>👋 哈囉！我是 Jack</h2>
@@ -245,13 +297,35 @@
 
         <h2 class="section-title">👾 營隊精選作品成果</h2>
         
-        <div class="project-card">
-            <img src="https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?w=500" alt="遊戲畫面" class="project-img">
-            <div class="project-info">
-                <h3>🚀 太空星戰大冒險 (Scratch 專題)</h3>
-                <p>這是我這次營隊引以為傲的魔王關卡作品！裡面設計了分數變數、隨機隕石，還有超酷的音效。快點擊下方按鈕，進去我的 Scratch 專頁一起挑戰高分吧！</p>
-                <a href="https://scratch.mit.edu" target="_blank" class="btn">點我開始玩遊戲</a>
+        <div class="projects-container">
+            
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?w=500" alt="遊戲畫面一" class="project-img">
+                <div class="project-info">
+                    <h3>🚀 太空星戰大冒險</h3>
+                    <p>這是我這次營隊引以為傲的魔王關卡作品！裡面設計了分數變數、隨機隕石，還有超酷的音效。快點擊下方按鈕，進去我的 Scratch 專頁一起挑戰高分吧！</p>
+                    <a href="https://scratch.mit.edu" target="_blank" class="btn">點我開始玩遊戲一</a>
+                </div>
             </div>
+
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1551103782-8ab07afd45c1?w=500" alt="遊戲畫面二" class="project-img">
+                <div class="project-info">
+                    <h3>迷宮極速逃脫</h3>
+                    <p>這是我的第二個 Scratch 專案！我寫了碰撞偵測的邏輯，如果踩到牆壁就會退回起點，最後還做了一個計時器，看誰能最快逃出迷宮！</p>
+                    <a href="https://scratch.mit.edu" target="_blank" class="btn">點我開始玩遊戲二</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500" alt="遊戲畫面三" class="project-img">
+                <div class="project-info">
+                    <h3>🍎 瘋狂接蘋果大戰</h3>
+                    <p>這是一個考驗反應力的遊戲。我利用克隆（Clone）技巧讓蘋果源源不絕地下落，拿著碗接到紅蘋果加分，接到爛蘋果會扣分喔，大家快來挑戰！</p>
+                    <a href="https://scratch.mit.edu" target="_blank" class="btn">點我開始玩遊戲三</a>
+                </div>
+            </div>
+
         </div>
 
     </div>
@@ -259,6 +333,8 @@
     <footer>
         <p>© 2026 Imagination Lab 想像力實驗室. Made with 💻 and AI.</p>
     </footer>
+
+    <div class="scroll-spacer"></div>
 
 </body>
 </html>
