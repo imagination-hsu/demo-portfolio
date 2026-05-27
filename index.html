@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jonathan 老師的 AI x Scratch 作品集</title>
+    <title>Jonathan 的數位秘密基地</title>
     <style>
         /* 全域樣式：營隊科技感配色 */
         body {
@@ -17,68 +17,133 @@
         /* 頂部導覽列 */
         header {
             background-color: #111827;
-            padding: 20px;
+            padding: 30px 20px;
             text-align: center;
             border-bottom: 2px solid #06b6d4;
         }
         h1 {
             margin: 0;
             color: #06b6d4;
-            font-size: 2.5rem;
+            font-size: 2.3rem;
         }
         .subtitle {
             color: #94a3b8;
-            margin-top: 5px;
+            margin-top: 8px;
+            font-size: 1.1rem;
         }
 
         /* 主體區塊 */
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
-        /* 個人簡介區塊（引導學生用 Gemini 寫這段） */
-        .profile-card {
+        /* 1. 個人簡介區塊（含大頭照） */
+        .profile-section {
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             border: 1px solid #334155;
-            border-radius: 16px;
+            border-radius: 20px;
             padding: 30px;
             margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
-        .profile-card h2 {
+        
+        /* 大頭照外框 */
+        .avatar-wrapper {
+            flex-shrink: 0;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #06b6d4;
+            overflow: hidden;
+            background-color: #334155;
+        }
+        .avatar-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .profile-info {
+            flex-grow: 1;
+        }
+        .profile-info h2 {
             color: #38bdf8;
-            margin-top: 0;
+            margin: 0 0 10px 0;
+        }
+        .profile-info p {
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin: 0;
         }
 
-        /* 作品集網格 */
-        .portfolio-grid {
+        /* 分區大標題 */
+        .section-title {
+            color: #06b6d4;
+            border-left: 5px solid #06b6d4;
+            padding-left: 15px;
+            margin: 40px 0 20px 0;
+            font-size: 1.6rem;
+        }
+
+        /* 2, 3, 4. 生活與興趣網格 (三欄佈局) */
+        .about-me-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
         }
 
-        /* 作品卡片樣式 */
+        /* 興趣卡片樣式 */
+        .info-card {
+            background-color: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .info-card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #1e293b;
+        }
+        .info-card-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+        .info-card-content h3 {
+            margin: 0 0 10px 0;
+            color: #38bdf8;
+            font-size: 1.2rem;
+        }
+        .info-card-content p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* 遊戲作品區塊 */
         .project-card {
             background-color: #1e293b;
             border: 1px solid #334155;
             border-radius: 12px;
             overflow: hidden;
-            transition: transform 0.3s, border-color 0.3s;
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-            border-color: #06b6d4;
+            display: flex;
+            align-items: center;
         }
         .project-img {
-            width: 100%;
-            height: 200px;
-            background-color: #334155;
+            width: 250px;
+            height: 180px;
             object-fit: cover;
         }
         .project-info {
-            padding: 20px;
+            padding: 25px;
         }
         .project-info h3 {
             margin: 0 0 10px 0;
@@ -86,11 +151,9 @@
         }
         .project-info p {
             color: #94a3b8;
-            font-size: 0.95rem;
+            margin-bottom: 15px;
             line-height: 1.5;
         }
-        
-        /* 按鈕樣式 */
         .btn {
             display: inline-block;
             background-color: #06b6d4;
@@ -99,7 +162,6 @@
             padding: 10px 20px;
             border-radius: 6px;
             font-weight: bold;
-            margin-top: 10px;
             transition: background 0.2s;
         }
         .btn:hover {
@@ -113,50 +175,89 @@
             color: #64748b;
             font-size: 0.9rem;
             border-top: 1px solid #1e293b;
+            margin-top: 60px;
+        }
+
+        /* RWD 響應式：手機畫面優化 */
+        @media (max-width: 600px) {
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .project-card {
+                flex-direction: column;
+            }
+            .project-img {
+                width: 100%;
+                height: 200px;
+            }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>🚀 Jonathan 的數位基地</h1>
-        <div class="subtitle">2026 暑期 AI x Scratch 遊戲工程營作品集</div>
+        <h1>🚀 Jonathan 的數位秘密基地</h1>
+        <div class="subtitle">2026 暑期 AI x Scratch 遊戲工程營成果展示</div>
     </header>
 
     <div class="container">
         
-        <section class="profile-card">
-            <h2>👋 關於我</h2>
-            <p>嗨！我是 Jonathan，一個喜歡用程式創造世界的冒險者。在這次的營隊中，我學習了如何用邏輯控制 Scratch 遊戲，還跟 AI 助手 Gemini 成了好朋友！這是我親手打造的個人網站，用來記錄我的科技挑戰成果。</p>
+        <section class="profile-section">
+            <div class="avatar-wrapper">
+                <img src="https://images.unsplash.com/photo-1566121316309-9175320040e3?w=300" alt="Jonathan 的大頭照">
+            </div>
+            <div class="profile-info">
+                <h2>👋 哈囉！我是 Jonathan</h2>
+                <p>歡迎來到我的個人網站！我今年國小升五年級。我很喜歡跟電腦一起玩，這五天我學會了用程式邏輯控制 Scratch 遊戲，還學會了怎麼跟 AI 助手 Gemini 下指令。這個網頁是我自己看著程式碼、用 AI 慢慢反覆測試修改出來的喔！</p>
+            </div>
         </section>
 
-        <h2>🎮 我的精選作品</h2>
+        <h2 class="section-title">✨ 關於我的小祕密</h2>
         
-        <div class="portfolio-grid">
+        <div class="about-me-grid">
             
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?w=600" alt="遊戲畫面" class="project-img">
-                <div class="project-info">
-                    <h3>太空星戰大冒險</h3>
-                    <p>這是我用 Scratch 製作的射擊遊戲！我利用了變數來計算分數，還設計了隨機出現的隕石。點擊下方按鈕就可以直接去我的 Scratch 專頁玩喔！</p>
-                    <a href="https://scratch.mit.edu" target="_blank" class="btn">開始玩遊戲</a>
+            <div class="info-card">
+                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500" alt="最喜歡的事" class="info-card-img">
+                <div class="info-card-content">
+                    <h3>🎮 我最喜歡的事</h3>
+                    <p>我最喜歡在放學後打電腦遊戲和研究積木！自從上了 Scratch 課之後，我發現原來自己動手做遊戲，比單純玩別人的遊戲還要更有成就感！</p>
                 </div>
             </div>
 
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1677442136019-21780efad99a?w=600" alt="AI構想" class="project-img">
-                <div class="project-info">
-                    <h3>未來 AI 機器人構想</h3>
-                    <p>在 AI 科技素養課中，我跟 Gemini 討論出了一款「自動幫忙收玩具」的機器人。我學會了什麼是機器學習，以及如何用精準的指令讓 AI 幫我解決問題。</p>
-                    <a href="#" class="btn" onclick="alert('點擊了AI專案介紹！')">查看 AI 點子</a>
+            <div class="info-card">
+                <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=500" alt="最喜歡的運動" class="info-card-img">
+                <div class="info-card-content">
+                    <h3>🏀 我最喜歡的運動</h3>
+                    <p>除了坐在電腦前，我也很喜歡去球場打籃球！運球和投籃都需要不斷練習，就像寫程式要不斷 Debug 一樣。希望我的投籃命中率能跟我的程式碼一樣準！</p>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=500" alt="AI拍檔" class="info-card-img">
+                <div class="info-card-content">
+                    <h3>🤖 我的超級 AI 拍檔</h3>
+                    <p>在營隊裡，Gemini 是我的最強助教！當網頁跑版或圖片出不來的時候，我會把程式碼貼給它，它就會溫柔地告訴我哪裡寫錯了。學會和 AI 溝通真的超酷的！</p>
                 </div>
             </div>
 
         </div>
+
+        <h2 class="section-title">👾 營隊精選作品成果</h2>
+        
+        <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?w=500" alt="遊戲畫面" class="project-img">
+            <div class="project-info">
+                <h3>🚀 太空星戰大冒險 (Scratch 專題)</h3>
+                <p>這是我這次營隊引以為傲的魔王關卡作品！裡面設計了分數變數、隨機隕石，還有超酷的音效。快點擊下方按鈕，進去我的 Scratch 專頁一起挑戰高分吧！</p>
+                <a href="https://scratch.mit.edu" target="_blank" class="btn">點我開始玩遊戲</a>
+            </div>
+        </div>
+
     </div>
 
     <footer>
-        <p>© 2026 Imagination Lab 想像力實驗室. All Rights Reserved.</p>
+        <p>© 2026 Imagination Lab 想像力實驗室. Made with 💻 and AI.</p>
     </footer>
 
 </body>
