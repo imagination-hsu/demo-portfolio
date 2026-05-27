@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan 老師的 AI x Scratch 作品集</title>
+    <style>
+        /* 全域樣式：營隊科技感配色 */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0b0f19;
+            color: #e2e8f0;
+            font-family: 'Segoe UI', Microsoft JhengHei, sans-serif;
+        }
+
+        /* 頂部導覽列 */
+        header {
+            background-color: #111827;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #06b6d4;
+        }
+        h1 {
+            margin: 0;
+            color: #06b6d4;
+            font-size: 2.5rem;
+        }
+        .subtitle {
+            color: #94a3b8;
+            margin-top: 5px;
+        }
+
+        /* 主體區塊 */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* 個人簡介區塊（引導學生用 Gemini 寫這段） */
+        .profile-card {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .profile-card h2 {
+            color: #38bdf8;
+            margin-top: 0;
+        }
+
+        /* 作品集網格 */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* 作品卡片樣式 */
+        .project-card {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #06b6d4;
+        }
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background-color: #334155;
+            object-fit: cover;
+        }
+        .project-info {
+            padding: 20px;
+        }
+        .project-info h3 {
+            margin: 0 0 10px 0;
+            color: #f8fafc;
+        }
+        .project-info p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        /* 按鈕樣式 */
+        .btn {
+            display: inline-block;
+            background-color: #06b6d4;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background-color: #0891b2;
+        }
+
+        /* 頁尾 */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid #1e293b;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🚀 Jonathan 的數位基地</h1>
+        <div class="subtitle">2026 暑期 AI x Scratch 遊戲工程營作品集</div>
+    </header>
+
+    <div class="container">
+        
+        <section class="profile-card">
+            <h2>👋 關於我</h2>
+            <p>嗨！我是 Jonathan，一個喜歡用程式創造世界的冒險者。在這次的營隊中，我學習了如何用邏輯控制 Scratch 遊戲，還跟 AI 助手 Gemini 成了好朋友！這是我親手打造的個人網站，用來記錄我的科技挑戰成果。</p>
+        </section>
+
+        <h2>🎮 我的精選作品</h2>
+        
+        <div class="portfolio-grid">
+            
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?w=600" alt="遊戲畫面" class="project-img">
+                <div class="project-info">
+                    <h3>太空星戰大冒險</h3>
+                    <p>這是我用 Scratch 製作的射擊遊戲！我利用了變數來計算分數，還設計了隨機出現的隕石。點擊下方按鈕就可以直接去我的 Scratch 專頁玩喔！</p>
+                    <a href="https://scratch.mit.edu" target="_blank" class="btn">開始玩遊戲</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780efad99a?w=600" alt="AI構想" class="project-img">
+                <div class="project-info">
+                    <h3>未來 AI 機器人構想</h3>
+                    <p>在 AI 科技素養課中，我跟 Gemini 討論出了一款「自動幫忙收玩具」的機器人。我學會了什麼是機器學習，以及如何用精準的指令讓 AI 幫我解決問題。</p>
+                    <a href="#" class="btn" onclick="alert('點擊了AI專案介紹！')">查看 AI 點子</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Imagination Lab 想像力實驗室. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
