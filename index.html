@@ -316,6 +316,34 @@
                 width: 70px;
             }
         }
+        /* 推薦標籤樣式 */
+        .favorite-badge {
+            background-color: #ef4444;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* 學習歷程按鈕：使用不同的顏色區分 */
+        .btn-secondary {
+            background-color: #fbbf24; /* 亮黃色 */
+            color: #7c2d12;
+            margin-left: 10px;
+        }
+        .btn-secondary:hover {
+            background-color: #f59e0b;
+        }
+
+        /* 特別強調最喜歡的作品卡片 */
+        .favorite-card {
+            border: 3px solid #ff971d !important;
+            background-color: #fffaf5 !important;
+        }
     </style>
 </head>
 <body>
@@ -389,12 +417,14 @@
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card favorite-card">
                 <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500" alt="遊戲畫面三" class="project-img">
                 <div class="project-info">
+                    <span class="favorite-badge">⭐ 我最喜歡的遊戲</span>
                     <h3>🍎 瘋狂接蘋果大戰</h3>
-                    <p>這是一個考驗反應力的遊戲。我利用克隆（Clone）技巧讓蘋果源源不絕地下落，拿著碗接到紅蘋果加分，接到爛蘋果會扣分喔，大家快來挑戰！</p>
-                    <a href="https://scratch.mit.edu" target="_blank" class="btn">點我開始玩遊戲三</a>
+                    <p>這是一個考驗反應力的遊戲。我利用克隆技巧讓蘋果源源不絕地下落，拿著碗接到紅蘋果加分，接到爛蘋果會扣分喔，大家快來挑戰！</p>
+                    <a href="https://scratch.mit.edu" target="_blank" class="btn">點我開始玩</a>
+                    <a href="project-detail.html" class="btn btn-secondary">查看學習歷程</a>
                 </div>
             </div>
 
