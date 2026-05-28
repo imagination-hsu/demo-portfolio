@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>貓抓老鼠遊戲 - 專案紀錄頁</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #fff7ed 0%, #ffedd5 100%);
+            color: #2b2d42;
+            font-family: 'Segoe UI', Microsoft JhengHei, sans-serif;
+        }
+        header {
+            background-color: #ff971d;
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .back-btn {
+            text-decoration: none;
+            color: #ea580c;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .record-card {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+        h1 { color: #ea580c; margin-top: 0; }
+        h2 { color: #ff971d; border-bottom: 2px solid #ffedd5; padding-bottom: 10px; margin-top: 30px; }
+        p { line-height: 1.8; color: #4b5563; }
+        
+        .main-img {
+            width: 100%;
+            border-radius: 16px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .flowchart-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .flowchart-img {
+            max-width: 100%;
+            border: 1px solid #fed7aa;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .tag {
+            background: #ffedd5;
+            color: #ea580c;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            margin-right: 8px;
+            display: inline-block;
+        }
+        footer { text-align: center; padding: 40px; color: #7c2d12; border-top: 1px solid #fed7aa; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🎮 專案開發紀錄：貓抓老鼠</h1>
+        <p>從邏輯思想到遊戲實現的全過程</p>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="back-btn">← 返回我的秘密基地</a>
+
+        <div class="record-card">
+            <h2>🐱 遊戲主題</h2>
+            <p>這是一場驚險的貓抓老鼠大戰！老鼠大王擁有神奇的分身術，可以穿過障礙物逃走；而貓咪玩家必須展現靈敏的反應，在障礙物之間遊走，抓住四處逃竄的老鼠。</p>
+            <img src="插畫.png" alt="遊戲插圖" class="main-img">
+
+            <h2>⚙️ 遊戲機制</h2>
+            <p>
+                <span class="tag">倒數計時</span>
+                <span class="tag">雙重操作(鍵盤/按鈕)</span>
+                <span class="tag">碰撞偵測</span>
+                <span class="tag">高分紀錄系統</span>
+            </p>
+            <p>玩家操控貓咪移動，抓住隨機位置的老鼠來得分。遊戲加入最高得分機制，讓每一次挑戰都更有目標感！</p>
+
+            <h2>🎨 遊戲素材</h2>
+            <p>結合了 Scratch 內建資源與 <strong>AI 生成的貓鼠俯視圖</strong>，加上我自己手繪設計的障礙物圖片，打造出獨一無二的關卡體驗。</p>
+
+            <h2>📜 邏輯流程圖 (Flowchart)</h2>
+            <p>在動手寫程式前，我先規劃了遊戲的邏輯。從簡單的步驟到複雜的判斷邏輯：</p>
+            
+            <div class="flowchart-container">
+                <p><strong>【簡單流程圖】</strong></p>
+                <img src="流程圖1.png" alt="簡單流程圖" class="flowchart-img">
+                
+                <p><strong>【詳細邏輯拆解】</strong></p>
+                <img src="流程圖2.png" alt="詳細流程圖" class="flowchart-img">
+
+                <p><strong>【核心程式判斷邏輯】</strong></p>
+                <img src="流程圖3.png" alt="程式邏輯圖" class="flowchart-img">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Imagination Lab 想像力實驗室. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
